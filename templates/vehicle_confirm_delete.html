@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<div class="main-panel">
+    <div class="content-wrapper">
+        <div class="row">
+            
+            {% if messages %}
+            <div class="col-12 col-xl-8 mb-4 mb-xl-4">
+              {% for message in messages %}
+              <h4>{{ message }}</h4>
+              {% endfor %}
+            </div>
+            {% endif %}
+
+            <div class="col-md-6 grid-margin stretch-card">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">Delete Vehicle Details</h4>
+                        <form method="POST" action="." class="forms-sample">
+                            {% csrf_token %}
+                            <h6 class="my-5">Are you sure you want to delete {{ vehicle }}? This can't be undone.</h6>
+                            <button type="submit" class="btn btn-primary mr-2">Confirm</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <!-- content-wrapper ends -->
+</div>
+
+{% endblock %}

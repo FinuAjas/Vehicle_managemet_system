@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<div class="main-panel">        
+    <div class="content-wrapper">
+      <div class="row">
+        
+        {% if messages %}
+        <div class="col-12 col-xl-8 mb-4 mb-xl-4">
+          {% for message in messages %}
+          <h4>{{ message }}</h4>
+          {% endfor %}
+        </div>
+        {% endif %}
+
+        <div class="col-md-6 grid-margin stretch-card">
+          <div class="card">
+            <div class="card-body">
+              <h4 class="card-title">Add New Vehicle</h4>
+              <form method="POST"  action="." class="forms-sample">
+                {% csrf_token %}
+                {% for field in form %}
+                <div class="form-group">
+                  <label for="exampleInputUsername1">{{ field.label }}</label>
+                  {{ field }}
+                </div>
+                {% endfor %}
+                <button type="submit" class="btn btn-primary mr-2">Submit</button>
+              </form>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <!-- content-wrapper ends -->
+  </div>
+
+{% endblock %}

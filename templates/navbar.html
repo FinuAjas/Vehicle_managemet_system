@@ -1,0 +1,20 @@
+<nav class="sidebar sidebar-offcanvas" id="sidebar">
+    <ul class="nav">
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'home' %}">
+          <i class="icon-grid menu-icon"></i>
+          <span class="menu-title">Dashboard</span>
+        </a>
+      </li>
+
+      {% if request.user.is_superadmin %}
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'addvehicles' %}">
+          <i class="icon-paper menu-icon"></i>
+          <span class="menu-title">Add New Vehicle</span>
+        </a>
+      </li>
+      {% endif %}
+      
+    </ul>
+  </nav>
